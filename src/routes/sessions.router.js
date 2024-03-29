@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
 
         req.session.login = true;
         req.session.user = { ...newUser._doc }
-        res.redirect("/profile");
+        res.redirect("/products");
     } catch (error) {
         res.status(500).send("Internal Server Error")
     }
@@ -35,7 +35,7 @@ router.post("/login", async (req, res) => {
                     first_name: user.first_name,
                     last_name: user.last_name
                 }
-                res.redirect("/profile");
+                res.redirect("/products");
             } else {
                 res.status(401).send("Invalid Password, please retry");
             }
